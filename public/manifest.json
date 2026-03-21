@@ -1,0 +1,28 @@
+{
+  "name": "AccessBridge AI",
+  "short_name": "AccessBridge",
+  "description": "Multi-agent AI system that transforms web content into universally accessible content.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#16C172",
+  "background_color": "#FAFAFA",
+  "categories": ["productivity", "utilities", "accessibility"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Analyze a URL",
+      "short_name": "Analyze",
+      "description": "Start a new accessibility analysis",
+      "url": "/?action=analyze"
+    }
+  ]
+}

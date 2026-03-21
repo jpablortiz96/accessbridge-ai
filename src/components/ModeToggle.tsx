@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { AnalysisMode } from "@/types";
 
 interface ModeToggleProps {
@@ -8,53 +7,75 @@ interface ModeToggleProps {
   onChange: (mode: AnalysisMode) => void;
 }
 
+const MODES = [
+  {
+    id:    "cloud"   as AnalysisMode,
+    label: "☁️ Cloud",
+    sub:   "AI-powered",
+  },
+  {
+    id:    "offline" as AnalysisMode,
+    label: "📡 Offline",
+    sub:   "Local",
+  },
+] as const;
+
 export default function ModeToggle({ value, onChange }: ModeToggleProps) {
-  const isCloud = value === "cloud";
-
-  const handleToggle = () => {
-    onChange(isCloud ? "offline" : "cloud");
-  };
-
   return (
-    <div className="flex items-center gap-3" role="group" aria-label="Analysis mode selection">
-      <span
-        className={`text-sm font-medium transition-colors duration-200 ${
-          !isCloud ? "text-primary" : "text-primary/40"
-        }`}
-        aria-hidden="true"
-      >
-        Offline
-      </span>
+    <div>
+      {/* Segmented control */}
+      <fieldset>
+        <legend className="sr-only">Analysis mode</legend>
+        <div
+          className="inline-flex p-1 rounded-2xl gap-1"
+          style={{ backgroundColor: "rgba(26,26,46,0.06)" }}
+          role="radiogroup"
+          aria-label="Select analysis mode"
+        >
+          {MODES.map((m) => {
+            const active = value === m.id;
+            return (
+              <label key={m.id} className="flex-1 cursor-pointer">
+                <input
+                  type="radio"
+                  name="analysis-mode"
+                  value={m.id}
+                  checked={active}
+                  onChange={() => onChange(m.id)}
+                  className="sr-only"
+                />
+                <span
+                  className={`
+                    flex flex-col items-center px-5 py-2 rounded-xl
+                    text-sm font-semibold leading-tight
+                    transition-all duration-200
+                    ${active
+                      ? "bg-white text-primary shadow-sm"
+                      : "text-primary/45 hover:text-primary/70"
+                    }
+                  `}
+                >
+                  <span>{m.label}</span>
+                  <span className={`text-[10px] font-normal mt-0.5 ${active ? "text-primary/50" : "text-primary/30"}`}>
+                    {m.sub}
+                  </span>
+                </span>
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
 
-      <button
-        role="switch"
-        aria-checked={isCloud}
-        aria-label={`Switch to ${isCloud ? "offline" : "cloud"} mode`}
-        onClick={handleToggle}
-        className={`
-          relative inline-flex h-6 w-11 items-center rounded-full
-          transition-colors duration-300 ease-in-out
-          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
-          ${isCloud ? "bg-accent" : "bg-primary/20"}
-        `}
-      >
-        <span
-          className={`
-            inline-block h-4 w-4 rounded-full bg-white shadow-md
-            transition-transform duration-300 ease-in-out
-            ${isCloud ? "translate-x-6" : "translate-x-1"}
-          `}
-        />
-      </button>
-
-      <span
-        className={`text-sm font-medium transition-colors duration-200 ${
-          isCloud ? "text-primary" : "text-primary/40"
-        }`}
-        aria-hidden="true"
-      >
-        Cloud
-      </span>
+      {/* Offline disclaimer */}
+      {value === "offline" && (
+        <p
+          className="mt-2.5 text-xs text-center text-primary/50"
+          aria-live="polite"
+          role="status"
+        >
+          📦 Runs entirely on-device. No data sent to cloud.
+        </p>
+      )}
     </div>
   );
 }
