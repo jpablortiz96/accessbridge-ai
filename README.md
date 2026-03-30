@@ -13,7 +13,7 @@ Built for the [JS AI Build-a-thon 2026](https://aka.ms/JSAIBuildathon) — **Age
 ## 📸 Screenshots
 
 ## Landing page
-(public/1.png)
+<img src="public/1.png" width="500">
 
 <!-- Analysis results -->
 <!-- ![Analysis results](docs/screenshots/analyze.png) -->
