@@ -12,10 +12,8 @@ Built for the [JS AI Build-a-thon 2026](https://aka.ms/JSAIBuildathon) — **Age
 
 ## 📸 Screenshots
 
-> *(Coming soon — add after Vercel deployment)*
-
-<!-- Landing page -->
-<!-- ![Landing page](docs/screenshots/landing.png) -->
+## Landing page
+[Landing page](public/1.png)
 
 <!-- Analysis results -->
 <!-- ![Analysis results](docs/screenshots/analyze.png) -->
