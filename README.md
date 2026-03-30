@@ -6,7 +6,7 @@ AccessBridge AI is a multi-agent system that transforms any web page into univer
 
 Built for the [JS AI Build-a-thon 2026](https://aka.ms/JSAIBuildathon) — **Agents for Impact**.
 
-**[🚀 Live Demo](https://YOUR_VERCEL_URL.vercel.app)** · **[GitHub](https://github.com/jpablortiz96/accessbridge-ai)**
+**[🚀 Live Demo](https://accessbridge-ld96l1r00-jpablortiz96s-projects.vercel.app/)** · **[GitHub](https://github.com/jpablortiz96/accessbridge-ai)** · **[📋 Blog Post](https://dev.to/jpablortiz96/building-accessbridge-ai-how-5-ai-agents-collaborate-to-make-the-web-accessible-24kf)** · **[📹 Video Demo](https://youtu.be/SFbjWWApP4M)**
 
 ---
 
